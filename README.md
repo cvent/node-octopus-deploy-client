@@ -1,10 +1,11 @@
-Octopus Client for Node.js
-==========================
+[![Travis branch](https://img.shields.io/travis/cvent/node-octopus-deploy-client/master.svg?style=flat-square)](https://travis-ci.org/cvent/node-octopus-deploy-client) [![npm](https://img.shields.io/npm/v/octopus-deploy-client.svg?style=flat-square)](https://www.npmjs.com/package/octopus-deploy-client) [![npm](https://img.shields.io/npm/l/octopus-deploy-client.svg?style=flat-square)](https://github.com/cvent/node-octopus-deploy-client/blob/master/LICENSE)
+
+# Octopus Client for Node.js
 
 This is a client library for the octopus deploy server api.
 
 
-# Usage
+## Usage
 
 You can use the client library by using the following code
 
