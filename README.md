@@ -9,8 +9,7 @@ This is a client library for the octopus deploy server api.
 
 You can use the client library by using the following code
 
-```
-
+```node
 var OctopusClient = require('octopus-deploy-client');
 
 # Create the client
