@@ -17,3 +17,55 @@
 //
 
 "use strict";
+var OctoClient = require("./dist/client.js");
+
+var defaultOptions = {
+      endpoint: null,
+      apiKey: null,
+      clientOptions: {}
+    };
+
+function getEndpoint(options) {
+  if (!options.endpoint) {
+    throw new Error("No endpoint provided");
+  }
+
+  return options.endpoint;
+}
+
+function getApiKey(options) {
+  if (!options.apiKey) {
+    throw new Error("No apiKey provided");
+  }
+
+  return options.apiKey;
+}
+
+function extend(dest /*, ...source */) {
+  for (var i = 1; i < arguments.length; i++) {
+    for (var key in arguments[i]) {
+      dest[key] = arguments[i][key]
+    }
+  }
+
+  return dest
+}
+
+function forcedOptions(options) {
+  return {
+    baseUri: getEndpoint(options) + "/api",
+    headers: {
+      "X-Octopus-ApiKey": getApiKey(options),
+      "Content-Type": "application/json"
+    }
+  };
+}
+
+module.exports = {
+  Create: function create(inOptions) {
+    var options = extend({}, defaultOptions, inOptions);
+
+    return new OctoClient(extend({}, options.clientOptions, forcedOptions(options)));
+  }
+};
+

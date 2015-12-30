@@ -6,7 +6,24 @@ This is a client library for the octopus deploy server api.
 
 # Usage
 
-To be continued...
+You can use the client library by using the following code
+
+```
+
+var OctopusClient = require('octopus-client');
+
+# Create the client
+var client = OctopusClient.Create({
+  endpoint: "https://octopus",
+  apiKey: "apiKey"
+});
+
+
+# You can then access other parts of the api like such
+client.Environments.getAll(function(error, body, response) {
+  # Do stuff
+});
+```
 
 ## License and Author
 

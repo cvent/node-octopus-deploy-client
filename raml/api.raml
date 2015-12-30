@@ -1,0 +1,374 @@
+#%RAML 0.8
+title: Octopus-Deploy
+version: 3.0.0
+mediaType: application/json
+protocols:
+  - HTTPS
+  - HTTP
+
+securitySchemes:
+  - apiKey:
+      type: Basic Authentication
+      describedBy:
+        responses:
+          401:
+            description: Unauthorized Request
+          403:
+            description: Invalid Permissions
+        headers:
+          X-Octopus-ApiKey:
+            default:
+            example: API-YUKJSDJFLJDSKLJFDSJF
+
+securedBy: ['apiKey']
+
+traits:
+  - validated:
+      responses:
+        401:
+          body:
+            application/json:
+  - paged:
+      description: Returns a paged set of data
+      queryParameters:
+        skip:
+          description: The number of items to skip per page
+          default: 0
+          example: 10
+/users:
+  description: Users api
+  get:
+    is: ['paged']
+    responses:
+      200:
+  post:
+    description: Creates a new User
+    is: ['validated']
+    responses:
+      201:
+  /login:
+    post:
+  /logout:
+    post:
+  /register:
+    post:
+  /all:
+    get:
+      responses:
+        200:
+  /me:
+    get:
+      responses:
+        200:
+  /{id}:
+    get:
+      responses:
+        200:
+    put:
+      is: ['validated']
+      responses:
+        200:
+    delete:
+    /reset-apikey:
+      post:
+
+/serverstatus:
+  get:
+    responses:
+      200:
+  /logs:
+    get:
+      responses:
+        200:
+  /activities:
+    get:
+      responses:
+        200:
+    /raw:
+      get:
+        responses:
+          200:
+  /system-info:
+    get:
+      responses:
+        200:
+  /system-report:
+    description: Download a zip file containing system information
+    get:
+      responses:
+        200:
+          body:
+            application/octet-stream:
+  /nuget:
+    get:
+      responses:
+        200:
+
+/environments:
+  description: Environments Api
+  get:
+    is: ['paged']
+    responses:
+      200:
+  post:
+    is: ['validated']
+    description: Creates a new Environment
+    responses:
+      201:
+  /{id}:
+    get:
+      responses:
+        200:
+    delete:
+    put:
+      description: Modifies an existing environment
+    /machines:
+      get:
+        is: ['paged']
+        description: Get machines in an environment
+  /all:
+    get:
+      responses:
+        200:
+  /sortorder:
+    put:
+      description: Set the environments sort order
+
+/libraryvariablesets:
+  description: Library variable sets api
+  get:
+    is: ['paged']
+  post:
+    is: ['validated']
+    description: Creates a new library varible set
+    responses:
+      201:
+  /{id}:
+    get:
+      responses:
+        200:
+    put:
+    delete:
+  /all:
+    get:
+      responses:
+        200:
+
+/teams:
+  description: Teams api
+  get:
+    is: ['paged']
+    responses:
+      200:
+  post:
+    is: ['validated']
+    description: Creates a new team
+    responses:
+      201:
+  /{id}:
+    get:
+      responses:
+        200:
+    put:
+    delete:
+  /all:
+    get:
+      responses:
+        200:
+          body:
+            application/json:
+
+/variables:
+  description: Variable set Api
+  /{id}:
+    get:
+      responses:
+        200:
+    put:
+  /names:
+    get:
+      responses:
+        200:
+
+/lifecycles:
+  description: Lifecycles Api
+  get:
+    is: ['paged']
+    responses:
+      200:
+  post:
+    is: ['validated']
+    description: Creates a new Lifecycle
+    responses:
+      201:
+  /{id}:
+    get:
+      responses:
+        200:
+    put:
+    delete:
+    /projects:
+      get:
+        responses:
+          200:
+    /preview:
+      get:
+        responses:
+          200:
+  /all:
+    get:
+      responses:
+        200:
+
+/machines:
+  description: Machines Api
+  get:
+    is: ['paged']
+    responses:
+      200:
+  post:
+    is: ['validated']
+    description: Creates a new machine
+    responses:
+      201:
+  /{id}:
+    get:
+      responses:
+        200:
+    put:
+    delete:
+  /all:
+    get:
+      responses:
+        200:
+  /discover:
+    get:
+      queryParameters:
+        host:
+          description: The fqdn of the machine to look up.
+        port:
+          description: The port on which the machine's tentacle is listening.
+
+/tasks:
+  description: Tasks Api
+  get:
+    is: ['paged']
+    responses:
+      200:
+  post:
+    is: ['validated']
+    description: Creates a new task
+    responses:
+      201:
+  /{id}:
+    get:
+      responses:
+        200:
+    /details:
+      get:
+        responses:
+          200:
+    /raw:
+      get:
+        responses:
+          200:
+            body:
+              text/plain:
+    /cancel:
+      post:
+        responses:
+          200:
+  /rerun:
+    /{id}:
+      post:
+        responses:
+          200:
+  /all:
+    get:
+      responses:
+        200:
+
+/projectgroups:
+  description: Project Groups API
+  get:
+    is: ['paged']
+    responses:
+      200:
+  /{id}:
+    get:
+      responses:
+        200:
+    /projects:
+      get:
+        is: ['paged']
+        responses:
+          200:
+  /all:
+    get:
+      responses:
+        200:
+
+/projects:
+  description: Projects API
+  /{id}:
+    get:
+      is: ['paged']
+      responses:
+        200:
+    /releases:
+      get:
+        is: ['paged']
+        responses:
+          200:
+      /{version}:
+        get:
+          responses:
+            200:
+  /all:
+    get:
+      responses:
+        200:
+
+/releases:
+  description: Releases API
+  get:
+    is: ['paged']
+    responses:
+      200:
+  post:
+    is: ['validated']
+    description: Creates a new release
+    responses:
+      201:
+  /{id}:
+    get:
+      responses:
+        200:
+    put:
+      is: ['validated']
+      description: Updates an existing release.
+      responses:
+        201:
+    /deployments:
+      get:
+        is: ['paged']
+        responses:
+          200:
+
+/dashboard:
+  description: Dashboard API
+  get:
+    responses:
+      200:
+  /dynamic:
+    get:
+      responses:
+        200:
+
+/deploymentprocesses:
+  description: Deployment Processes API
+  /{id}:
+    get:
+      description: Gets a deployment process by ID.
+      responses:
+        200:

@@ -1,0 +1,8 @@
+{
+  "rules": {
+    "new-cap": 0,
+  },
+  "env": {
+    "node": true
+  }
+}

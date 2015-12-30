@@ -7,15 +7,28 @@
     "type": "git",
     "url": "git://github.com:cvent/node-octopus-deploy-client.git"
   },
-  "dependencies": {},
-  "devDependencies": {},
+  "dependencies": {
+    "es6-promise": "^3.0.2",
+    "popsicle": "^2.0.1"
+  },
+  "devDependencies": {
+    "del": "^2.2.0",
+    "gulp": "^3.9.0",
+    "gulp-eslint": "^1.1.1",
+    "gulp-mocha": "^2.2.0",
+    "gulp-raml": "^0.1.3",
+    "gulp-raml-client-generator": "0.0.2",
+    "gulp-release-tasks": "0.0.3",
+    "nock": "^3.6.0",
+    "should": "^8.0.2"
+  },
   "author": "bmontague@cvent.com",
   "bugs": {
     "url": "https://github.com/%3Acvent/node-octopus-deploy-client/issues"
   },
   "homepage": "https://github.com/%3Acvent/node-octopus-deploy-client#readme",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "node_modules/.bin/gulp test"
   },
   "keywords": [
     "octopus-deploy"
