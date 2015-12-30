@@ -53,9 +53,7 @@ client.resources.environments.all.get().then(assertSuccess).then(getBody).then(f
 });
 ```
 
-## License and Author
-
-* Author:: Brent Montague (<bmontague@cvent.com>)
+## License
 
 Copyright:: 2015, Cvent, Inc.
 
@@ -71,4 +69,4 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-Please refer to the [license](LICENSE.md) file for more license information.
+Please refer to the [license](LICENSE) file for more license information.
