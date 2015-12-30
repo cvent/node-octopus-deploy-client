@@ -12,7 +12,7 @@ You can use the client library by using the following code
 ```node
 var OctopusClient = require('octopus-deploy-client');
 
-# Create the client
+// Create the client
 var client = OctopusClient.Create({
   endpoint: "https://octopus",
   apiKey: "apiKey",
@@ -22,14 +22,14 @@ var client = OctopusClient.Create({
 });
 
 
-# You can then access other parts of the api like such, it returns a promise with the response
+// You can then access other parts of the api like such, it returns a promise with the response
 client.resources.environments.all.get().then(function(response) {
   console.log(response.body);
   console.log(response.status);
-  # Do more stuff
+  // Do more stuff
 });
 
-# You can also create promises to handle parsing certain items or validating responses
+// You can also create promises to handle parsing certain items or validating responses
 function getBody(response) {
   return new Promise(function(resolve, reject){
       resolve(response.body);
@@ -51,6 +51,11 @@ client.resources.environments.all.get().then(assertSuccess).then(getBody).then(f
   # Do more stuff
 });
 ```
+
+#### Note
+
+The code above does make use of promises so if you do not have a version of node which has this available and want to use promises you can use the [es6-promise](https://github.com/jakearchibald/es6-promise#auto-polyfill) library to add support
+
 
 ## License
 
