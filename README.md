@@ -10,18 +10,45 @@ You can use the client library by using the following code
 
 ```
 
-var OctopusClient = require('octopus-client');
+var OctopusClient = require('octopus-deploy-client');
 
 # Create the client
 var client = OctopusClient.Create({
   endpoint: "https://octopus",
-  apiKey: "apiKey"
+  apiKey: "apiKey",
+  clientOptions: {
+    rejectUnauthorized: false
+  }
 });
 
 
-# You can then access other parts of the api like such
-client.Environments.getAll(function(error, body, response) {
-  # Do stuff
+# You can then access other parts of the api like such, it returns a promise with the response
+client.resources.environments.all.get().then(function(response) {
+  console.log(response.body);
+  console.log(response.status);
+  # Do more stuff
+});
+
+# You can also create promises to handle parsing certain items or validating responses
+function getBody(response) {
+  return new Promise(function(resolve, reject){
+      resolve(response.body);
+  });
+}
+
+function assertSuccess(response) {
+  return new Promise(function(resolve, reject){
+    if(response.status == 200) {
+      resolve(response);
+    } else {
+      reject(response)
+    }
+  });
+}
+
+client.resources.environments.all.get().then(assertSuccess).then(getBody).then(function(body) {
+  console.log(body);
+  # Do more stuff
 });
 ```
 
