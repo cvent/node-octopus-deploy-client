@@ -1,6 +1,6 @@
 {
   "name": "octopus-deploy-client",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A client for interfacing with the octopus deploy api",
   "main": "index.js",
   "repository": {
@@ -8,7 +8,7 @@
     "url": "https://github.com/cvent/node-octopus-deploy-client.git"
   },
   "bugs": {
-    "url": "https://github.com/cvent/node-octopus-deploy-client/issues"
+    "url": "https://github.com/%3Acvent/node-octopus-deploy-client/issues"
   },
   "dependencies": {
     "popsicle": "^2.0.1"
@@ -25,9 +25,6 @@
     "should": "^8.0.2"
   },
   "author": "bmontague@cvent.com",
-  "bugs": {
-    "url": "https://github.com/%3Acvent/node-octopus-deploy-client/issues"
-  },
   "homepage": "https://github.com/%3Acvent/node-octopus-deploy-client#readme",
   "scripts": {
     "test": "node_modules/.bin/gulp test"
