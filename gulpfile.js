@@ -1,5 +1,3 @@
-require('es6-promise').polyfill();
-
 var gulp = require('gulp'),
     mocha = require('gulp-mocha'),
     releaseTasks = require('gulp-release-tasks'),
@@ -48,7 +46,7 @@ gulp.task('watch', function() {
 
 gulp.task('test', ['generate-client', 'lint'], function() {
   return gulp.src(paths.tests, {read: false})
-        .pipe(mocha({reporter: 'nyan'}));
+        .pipe(mocha());
 });
 
 gulp.task('default', ['test']);

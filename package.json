@@ -5,10 +5,12 @@
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com:cvent/node-octopus-deploy-client.git"
+    "url": "https://github.com/cvent/node-octopus-deploy-client.git"
+  },
+  "bugs": {
+    "url": "https://github.com/cvent/node-octopus-deploy-client/issues"
   },
   "dependencies": {
-    "es6-promise": "^3.0.2",
     "popsicle": "^2.0.1"
   },
   "devDependencies": {
