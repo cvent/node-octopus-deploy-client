@@ -1,1 +1,4 @@
 test/
+gulpfile.js
+.eslintrc
+.travis.yml
