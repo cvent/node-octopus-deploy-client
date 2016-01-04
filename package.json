@@ -8,7 +8,7 @@
     "url": "https://github.com/cvent/node-octopus-deploy-client.git"
   },
   "bugs": {
-    "url": "https://github.com/%3Acvent/node-octopus-deploy-client/issues"
+    "url": "https://github.com/cvent/node-octopus-deploy-client/issues"
   },
   "dependencies": {
     "popsicle": "^2.0.1"
@@ -25,12 +25,15 @@
     "should": "^8.0.2"
   },
   "author": "bmontague@cvent.com",
-  "homepage": "https://github.com/%3Acvent/node-octopus-deploy-client#readme",
+  "homepage": "https://github.com/cvent/node-octopus-deploy-client#readme",
   "scripts": {
     "test": "node_modules/.bin/gulp test"
   },
   "keywords": [
-    "octopus-deploy"
+    "octopus-deploy",
+    "client",
+    "octopus",
+    "deployments"
   ],
   "license": "Apache-2.0"
 }
