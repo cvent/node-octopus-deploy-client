@@ -372,3 +372,20 @@ traits:
       description: Gets a deployment process by ID.
       responses:
         200:
+
+/deployments:
+  description: Deployment API
+  get:
+    is: ['paged']  
+    description: Lists all of the deployments.
+    queryParameters:
+      projects:
+      environments:
+      channels:
+      taskState:
+    responses:
+      200:
+  post:
+    description: Creates a new deployment.
+    responses:
+      201:
