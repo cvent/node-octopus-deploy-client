@@ -57,4 +57,18 @@ describe('Team Api', function(){
         done(error);
       });
   })
+
+  it('should be able to get pagination of scoped user roles', function(done){
+    mock.get('/api/teams/Teams-1/scopeduserroles')
+      .reply(200, { Items: [{ Id: "scopeduserroles-1", TeamId: "Teams-1" }] });
+
+    client.resources.teams.id("Teams-1").scopeduserroles.get()
+      .then(helper.successResponse)
+      .then(function(resp){
+        should(resp.body.Items[0].Id).eql('scopeduserroles-1');
+        done();
+      }).catch(function(error) {
+        done(error);
+      });
+  })
 })

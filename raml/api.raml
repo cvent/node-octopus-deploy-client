@@ -171,6 +171,12 @@ traits:
         200:
     put:
     delete:
+    /scopeduserroles:
+      get:
+        responses:
+          200:
+            body:
+              application/json:
   /all:
     get:
       responses:
@@ -376,7 +382,7 @@ traits:
 /deployments:
   description: Deployment API
   get:
-    is: ['paged']  
+    is: ['paged']
     description: Lists all of the deployments.
     queryParameters:
       projects:
@@ -389,3 +395,27 @@ traits:
     description: Creates a new deployment.
     responses:
       201:
+
+/scopeduserroles:
+  description: Scoped User roles
+  get:
+    is: ['paged']
+    description: Lists all scoped user roles.
+    responses:
+      200:
+  post:
+    description: Create new scoped user role
+    is: ['validated']
+    responses:
+      201:
+  /{id}:
+    get:
+      is: ['paged']
+      description: Gets a scoped role for the team by ID.
+      responses:
+        200:
+    put:
+      description: Updates scoped role for the team by ID.
+      responses:
+        200:
+    delete:
