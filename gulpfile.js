@@ -4,7 +4,10 @@ var gulp = require('gulp'),
     raml = require('gulp-raml'),
     del = require('del'),
     ramlClientGenerator = require('gulp-raml-client-generator'),
-    eslint = require('gulp-eslint');
+    eslint = require('gulp-eslint'),
+    harmonize = require("harmonize");
+
+harmonize();
 
 // Load tasks into gulp
 releaseTasks(gulp);

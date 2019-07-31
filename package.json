@@ -22,7 +22,8 @@
     "gulp-raml-client-generator": "0.0.2",
     "gulp-release-tasks": "0.0.3",
     "nock": "^3.6.0",
-    "should": "^8.0.2"
+    "should": "^8.0.2",
+    "harmonize": "^2.0.0"
   },
   "author": "bmontague@cvent.com",
   "homepage": "https://github.com/cvent/node-octopus-deploy-client#readme",
