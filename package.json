@@ -15,7 +15,7 @@
   },
   "devDependencies": {
     "del": "^2.2.0",
-    "gulp": "^3.9.0",
+    "gulp": "^3.9.1",
     "gulp-eslint": "^1.1.1",
     "gulp-mocha": "^2.2.0",
     "gulp-raml": "^0.1.3",
